@@ -29,14 +29,15 @@ def blur_faces(image_path: str) -> str:
         blurred_roi = cv2.GaussianBlur(roi, (99, 99), 30)
         image[y:y + h, x:x + w] = blurred_roi
 
+    # Saves the new image with the blurred faces
     output_path = image_path.parent / f"{image_path.stem}-blurred{image_path.suffix}"
     cv2.imwrite(output_path, image)
     print(f"Saved blurred image to: {output_path}")
 
     return output_path
 
+# Gets the file path for the image to scanned and blurred.
 image_filename = "test-image.jpg"
-
 script_dir = Path(__file__).resolve().parent
 input_path = script_dir / image_filename
 
