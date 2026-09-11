@@ -14,7 +14,6 @@ print(f"Server is listening for a client on port {PORT}...")
 _, client_address = server_socket.recvfrom(1024)
 print(f"Client connected from: {client_address}. Starting stream...")
 
-# Open webcam 
 camera = cv2.VideoCapture(0)
 
 # Set lower resolution to ensure compressed frames easily fit within UDP limits
@@ -43,9 +42,9 @@ try:
         server_socket.sendto(data, client_address)
 
 except KeyboardInterrupt:
-    print("\nStopping server stream...")
+    print("\nStopping video stream...")
 
 finally:
     camera.release()
     server_socket.close()
-    print("Resources cleaned up.")
+    print("Server shutdown.")
