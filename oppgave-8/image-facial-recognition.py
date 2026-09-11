@@ -18,7 +18,7 @@ def blur_faces(image_path: str) -> str:
 
     # Checks for- and saves the positions of faces in the image using the Cascade classifier
     faces = face_cascade.detectMultiScale(
-        gray, scaleFactor=1.1, minNeighbors=6, minSize=(30, 30)
+        gray, scaleFactor=1.1, minNeighbors=10, minSize=(65, 65)
     )
 
     print(f"Faces detected: {len(faces)}")
