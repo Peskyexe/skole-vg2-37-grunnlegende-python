@@ -31,7 +31,7 @@ class TrackData:
         track_data = track_variant.value if track_variant else None
         return track_data
     
-    def update_data(self, media_data):
+    def update_data(self, media_data) -> None:
         # Update Status if it exists in this change payload
         new_status = self.get_data_value(media_data, "Status")
         if new_status:
